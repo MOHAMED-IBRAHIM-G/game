@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:cadetblue;
+        }
+        .text{
+            color: yellow;
+        }
+        .div1{
+            
+            margin-top: 10%;
+            display:flex;
+            justify-content: space-evenly;
+          
+        }
+        .div2{
+            border: 10px solid red;
+            background-color: blueviolet;
+            box-shadow: 0px 5px 10px blue;
+
+        }
+        .div3{
+            border: 10px solid red;
+            background-color: blueviolet;
+        }
+        button{
+            margin-top: 50px;
+            padding: 20px;
+            width: 30%;
+            background-color: aqua;
+            font:40px sans-serif;
+        
+            
+        }
+        #re{
+            text-align: center;
+            margin-top: 10px;
+            background-color: orange;
+            color: white;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1 class="text" style="text-align: center;">Welcome To The Dice Game</h1>
+
+    <h1 id="re"></h1>
+    <div class="div1">
+        <div class="div2">
+            <img src="images/dice6.png" alt="" id="first">
+            <h3 class="text" style="text-align: center;">player 1</h3>
+        </div>
+        <div class="div3">
+            <img src="images/dice6.png" alt="" id="second">
+            <h3 class="text" style="text-align: center;">player 2</h3>
+            
+        </div>
+    </div>
+     <center><button onclick="start()">Start</button></center>
+    <script>
+        function start(){
+            var dice1ran=Math.floor(Math.random()*6+1);
+            var dice2ran=Math.floor(Math.random()*6+1);
+            var new1="images/"+"dice"+dice1ran+".png";
+            var new2="images/"+"dice"+dice2ran+".png";
+            console.log(new1);
+            console.log(new2);
+
+            var newdice1=document.getElementById("first").setAttribute("src",new1);
+            var newdice2=document.getElementById("second").setAttribute("src",new2);
+            if(dice1ran>dice2ran)
+            {
+                document.getElementById("re").innerHTML="Player 1 is winner"
+            }
+            else if(dice1ran<dice2ran)
+            {
+                 document.getElementById("re").innerHTML="Player 2 is winner"
+
+            }
+            else{
+                 document.getElementById("re").innerHTML="math is draw";
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
